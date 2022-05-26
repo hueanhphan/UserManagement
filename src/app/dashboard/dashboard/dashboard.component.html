@@ -1,0 +1,44 @@
+<div class="dashboard">
+  <c-container>
+    <h2 class="usermanagement center">USER MANAGEMENT</h2>
+
+    <table cTable>
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Username</th>
+          <th scope="col">Password</th>
+          <th scope="col">Email</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let user of users">
+        <tr>
+          <th scope="row">{{ user.id }}</th>
+          <td>{{ user.username }}</td>
+          <td>{{ user.password }}</td>
+          <td>{{ user.email }}</td>
+          <td>
+            <button
+              cButton
+              color="info"
+              variant="outline"
+              (click)="handleChangePage(user)"
+              class="me-2"
+            >
+              <svg cIcon [cIcon]="icons.cilPencil" size="l"></svg>
+            </button>
+            <button
+              cButton
+              color="danger"
+              variant="outline"
+              (click)="handleDeleteUser(user)"
+            >
+              <span><svg cIcon [cIcon]="icons.cilTrash" size="l"></svg> </span>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </c-container>
+</div>

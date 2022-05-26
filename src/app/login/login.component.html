@@ -1,0 +1,36 @@
+<div class="form">
+  <h2 class="title-login center">Login</h2>
+  <form
+    action=""
+    cForm
+    class="row g-3"
+    (ngSubmit)="onSubmitLogin()"
+    [formGroup]="profileForm"
+  >
+    <c-col [md]="12">
+      <label cLabel for="username">Username</label>
+      <input
+        cFormControl
+        [(ngModel)]="username"
+        id="username"
+        name="username"
+        type="text"
+        formControlName="username"
+      />
+    </c-col>
+    <c-col [md]="12">
+      <label cLabel for="inputPassword">Password</label>
+      <input
+        cFormControl
+        id="inputPassword"
+        type="password"
+        name="password"
+        [(ngModel)]="password"
+        formControlName="password"
+      />
+    </c-col>
+    <div class="center">
+      <button cButton color="success" type="submit">Submit</button>
+    </div>
+  </form>
+</div>

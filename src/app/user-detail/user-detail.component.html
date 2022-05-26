@@ -1,0 +1,48 @@
+<div class="form">
+  <h2 class="title-edit center">Edit</h2>
+  <form
+    action=""
+    cForm
+    class="row g-3"
+    (ngSubmit)="onSubmit()"
+    [formGroup]="profileForm"
+  >
+    <c-col [md]="6">
+      <label cLabel for="username">Username</label>
+      <input
+        cFormControl
+        [(ngModel)]="username"
+        id="username"
+        name="username"
+        type="text"
+        formControlName="username"
+      />
+    </c-col>
+    <c-col [md]="6">
+      <label cLabel for="inputPassword">Password</label>
+      <input
+        cFormControl
+        id="inputPassword"
+        type="password"
+        name="password"
+        [(ngModel)]="password"
+        formControlName="password"
+      />
+    </c-col>
+    <c-col [xs]="12">
+      <label cLabel for="inputEmail">Email</label>
+      <input
+        cFormControl
+        id="inputEmail"
+        placeholder="a123@gmail.com"
+        name="email"
+        [(ngModel)]="email"
+        formControlName="email"
+      />
+    </c-col>
+
+    <div class="center">
+      <button cButton color="success" type="submit">Submit</button>
+    </div>
+  </form>
+</div>
