@@ -10,16 +10,6 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./user-detail.component.scss'],
 })
 export class UserDetailComponent implements OnInit {
-  profileForm = this.fb.group({
-    username: '',
-    password: '',
-    email: '',
-  });
-  constructor(
-    private fb: FormBuilder,
-    private route: ActivatedRoute,
-    private userService: UserService
-  ) {}
   username!: string;
   password!: string;
   email!: string;
@@ -27,7 +17,12 @@ export class UserDetailComponent implements OnInit {
   users: User[] = [];
   user!: User;
 
-  handleUpdateUser() {}
+  constructor(
+    private fb: FormBuilder,
+    private route: ActivatedRoute,
+    private userService: UserService
+  ) {}
+
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     console.log(this.id);
@@ -36,11 +31,11 @@ export class UserDetailComponent implements OnInit {
       .subscribe((users) => (this.user = users.find((u) => u.id === this.id)!));
   }
 
-  onSubmit() {
-    const newUser = {
-      username: this.username,
-      password: this.password,
-      email: this.email,
-    };
+  onSubmit(user: User) {
+    this.user.username = this.username;
+    this.user.password = this.password;
+    this.user.email = this.email;
+
+    this.userService.updateUser(user).subscribe();
   }
 }

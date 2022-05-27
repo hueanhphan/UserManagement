@@ -5,7 +5,7 @@
     cForm
     class="row g-3"
     (ngSubmit)="onSubmit()"
-    [formGroup]="profileForm"
+    [validated]="customStylesValidated"
   >
     <c-col [md]="6">
       <label cLabel for="username">Username</label>
@@ -15,8 +15,9 @@
         id="username"
         name="username"
         type="text"
-        formControlName="username"
+        required
       />
+      <c-form-feedback [valid]="false">Username is required</c-form-feedback>
     </c-col>
     <c-col [md]="6">
       <label cLabel for="inputPassword">Password</label>
@@ -26,8 +27,9 @@
         type="password"
         name="password"
         [(ngModel)]="password"
-        formControlName="password"
+        required
       />
+      <c-form-feedback [valid]="false">Password is required</c-form-feedback>
     </c-col>
     <c-col [xs]="12">
       <label cLabel for="inputEmail">Email</label>
@@ -36,13 +38,25 @@
         id="inputEmail"
         placeholder="a123@gmail.com"
         name="email"
+        required
         [(ngModel)]="email"
-        formControlName="email"
       />
+      <c-form-feedback [valid]="false">Email is required</c-form-feedback>
     </c-col>
 
     <div class="center">
+      <button
+        cButton
+        color="secondary"
+        (click)="handleResetData()"
+        class="me-3"
+      >
+        Reset
+      </button>
       <button cButton color="success" type="submit">Submit</button>
+    </div>
+    <div class="back">
+      <a routerLink="/login">Back</a>
     </div>
   </form>
 </div>

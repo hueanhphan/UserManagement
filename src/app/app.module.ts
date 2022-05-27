@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { TableModule, UtilitiesModule } from '@coreui/angular';
+import { FooterModule, TableModule, UtilitiesModule } from '@coreui/angular';
 import {
   FormModule,
   GridModule,
@@ -20,8 +20,11 @@ import { RegisterComponent } from './register/register/register.component';
 import { HeaderComponent } from './header/header/header.component';
 import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
 import { IconModule, IconSetService } from '@coreui/icons-angular';
+import { ListImageComponent } from './list-image/list-image.component';
+import { FooterComponent } from './footer/footer.component';
 
 const appRoutes: Routes = [
+  { path: '', component: ListImageComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'dashboard', component: DashboardComponent },
@@ -35,6 +38,8 @@ const appRoutes: Routes = [
     HeaderComponent,
     DashboardComponent,
     UserDetailComponent,
+    ListImageComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,6 +56,7 @@ const appRoutes: Routes = [
     TableModule,
     UtilitiesModule,
     IconModule,
+    FooterModule,
   ],
   providers: [IconSetService],
   bootstrap: [AppComponent],

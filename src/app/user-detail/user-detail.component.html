@@ -1,12 +1,6 @@
 <div class="form">
   <h2 class="title-edit center">Edit</h2>
-  <form
-    action=""
-    cForm
-    class="row g-3"
-    (ngSubmit)="onSubmit()"
-    [formGroup]="profileForm"
-  >
+  <form action="" cForm class="row g-3" (ngSubmit)="onSubmit(user)">
     <c-col [md]="6">
       <label cLabel for="username">Username</label>
       <input
@@ -15,7 +9,6 @@
         id="username"
         name="username"
         type="text"
-        formControlName="username"
       />
     </c-col>
     <c-col [md]="6">
@@ -26,7 +19,6 @@
         type="password"
         name="password"
         [(ngModel)]="password"
-        formControlName="password"
       />
     </c-col>
     <c-col [xs]="12">
@@ -37,7 +29,6 @@
         placeholder="a123@gmail.com"
         name="email"
         [(ngModel)]="email"
-        formControlName="email"
       />
     </c-col>
 

@@ -5,7 +5,7 @@
     cForm
     class="row g-3"
     (ngSubmit)="onSubmitLogin()"
-    [formGroup]="profileForm"
+    [validated]="customStylesValidated"
   >
     <c-col [md]="12">
       <label cLabel for="username">Username</label>
@@ -15,19 +15,21 @@
         id="username"
         name="username"
         type="text"
-        formControlName="username"
+        required
       />
+      <c-form-feedback [valid]="false">Username is required</c-form-feedback>
     </c-col>
     <c-col [md]="12">
-      <label cLabel for="inputPassword">Password</label>
+      <label cLabel for="inputPassword">Password </label>
       <input
         cFormControl
         id="inputPassword"
         type="password"
         name="password"
+        required
         [(ngModel)]="password"
-        formControlName="password"
       />
+      <c-form-feedback [valid]="false">Password is required</c-form-feedback>
     </c-col>
     <div class="center">
       <button cButton color="success" type="submit">Submit</button>
